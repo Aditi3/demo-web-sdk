@@ -10,7 +10,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showCart: false,
+      showCart: this.props.showCart,
       cart: this.props.cartItems,
       mobileSearch: false
     };
@@ -71,16 +71,18 @@ class Header extends Component {
 
   checkoutPressed = () => {
 
-    if (this.state.cart.length > 0) {
+    if (this.props.cartItems.length > 0) {
       clevertap.event.push("Charged", {
-        "Items": this.state.cart 
+        "Items": this.props.cartItems 
       })
+      this.setState({showCart: false})
+      this.props.removeAllProducts()
     }
   }
 
   render() {
     let cartItems;
-    cartItems = this.state.cart.map(product => {
+    cartItems = this.props.cartItems.map(product => {
       return (
         <li className="cart-item" key={product.name}>
           <img className="product-image" src={product.image} />
@@ -222,7 +224,7 @@ class Header extends Component {
               <div className="action-block">
                 <button
                   type="button"
-                  className={this.state.cart.length > 0 ? " " : "disabled"}
+                  className={this.props.cartItems.length > 0 ? " " : "disabled"}
                   onClick={this.checkoutPressed}
                 >
                   PROCEED TO CHECKOUT

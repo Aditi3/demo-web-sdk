@@ -26,7 +26,8 @@ class App extends Component {
       cartBounce: false,
       quantity: 1,
       quickViewProduct: {},
-      modalActive: false
+      modalActive: false,
+      showCart: false
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handleMobileSearch = this.handleMobileSearch.bind(this);
@@ -112,6 +113,28 @@ class App extends Component {
     this.sumTotalItems(this.state.cart);
     this.sumTotalAmount(this.state.cart);
   }
+
+  handleRemoveAllProducts = () => {
+    console.log("das")
+    const initialState = {
+      cart: [],
+      totalItems: 0,
+      totalAmount: 0,
+      term: "",
+      category: "",
+      cartBounce: false,
+      quantity: 1,
+      quickViewProduct: {},
+      modalActive: false,
+      showCart: false
+    }
+
+    this.setState(initialState, () => {
+      this.sumTotalItems(this.state.cart)
+      this.sumTotalAmount(this.state.cart)
+    })
+  }
+
   handleRemoveProduct(id, e) {
     let cart = this.state.cart;
     let index = cart.findIndex(x => x.id == id);
@@ -170,14 +193,17 @@ class App extends Component {
   }
 
   render() {
+    
     return (
       <div className="container">
         <Header
+          showCart={this.state.showCart}
           cartBounce={this.state.cartBounce}
           total={this.state.totalAmount}
           totalItems={this.state.totalItems}
           cartItems={this.state.cart}
           removeProduct={this.handleRemoveProduct}
+          removeAllProducts={this.handleRemoveAllProducts}
           handleSearch={this.handleSearch}
           handleMobileSearch={this.handleMobileSearch}
           handleCategory={this.handleCategory}
