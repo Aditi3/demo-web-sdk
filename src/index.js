@@ -7,6 +7,12 @@ import Footer from "./components/Footer";
 import QuickView from "./components/QuickView";
 import "./scss/style.scss";
 
+//CLEVERTAP INITIALIZATION
+import clevertap from 'clevertap-web-sdk';
+clevertap.privacy.push({ optOut: false });
+clevertap.init('W9R-486-4W5Z');
+clevertap.setLogLevel(3);
+
 class App extends Component {
   constructor() {
     super();
@@ -63,6 +69,17 @@ class App extends Component {
   }
   // Add to Cart
   handleAddToCart(selectedProducts) {
+
+    // RECORD EVENT FOR PRODUCTS ADDED TO CART
+    const productProps = {
+      "productID": selectedProducts.id || undefined,
+      "quantity": selectedProducts.quantity || undefined,
+      "image": selectedProducts.image || undefined,
+      "name": selectedProducts.name || undefined,
+      "price": selectedProducts.price || undefined
+    }
+    clevertap.event.push("Product added to cart", productProps);
+
     let cartItem = this.state.cart;
     let productID = selectedProducts.id;
     let productQty = selectedProducts.quantity;
@@ -82,7 +99,7 @@ class App extends Component {
       cartBounce: true
     });
     setTimeout(
-      function() {
+      function () {
         this.setState({
           cartBounce: false,
           quantity: 1
@@ -108,7 +125,7 @@ class App extends Component {
   }
   checkProduct(productID) {
     let cart = this.state.cart;
-    return cart.some(function(item) {
+    return cart.some(function (item) {
       return item.id === productID;
     });
   }

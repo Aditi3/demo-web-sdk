@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import EmptyCart from "../empty-states/EmptyCart";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import { findDOMNode } from "react-dom";
+import clevertap from "clevertap-web-sdk";
 
 class Header extends Component {
   constructor(props) {
@@ -67,6 +68,16 @@ class Header extends Component {
       true
     );
   }
+
+  checkoutPressed = () => {
+
+    if (this.state.cart.length > 0) {
+      clevertap.event.push("Charged", {
+        "Items": this.state.cart 
+      })
+    }
+  }
+
   render() {
     let cartItems;
     cartItems = this.state.cart.map(product => {
@@ -212,6 +223,7 @@ class Header extends Component {
                 <button
                   type="button"
                   className={this.state.cart.length > 0 ? " " : "disabled"}
+                  onClick={this.checkoutPressed}
                 >
                   PROCEED TO CHECKOUT
                 </button>
