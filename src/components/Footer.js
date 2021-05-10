@@ -1,33 +1,22 @@
 import React, { Component } from "react";
 
 const Footer = props => {
-  return (
-    <footer>
-      <p className="footer-links">
-        <a
-          href="https://github.com/sivadass/react-shopping-cart"
-          target="_blank"
-        >
-          View Source on Github
+    return (
+        <footer>
+            <p className="footer-links">
+                <a href="" target="_blank">
+                    Contact Us
         </a>
-        <span> / </span>
-        <a href="mailto:contact@sivadass.in" target="_blank">
-          Need any help?
+                <span> / </span>
+                <a href="" target="_blank">
+                    More Details
         </a>
-        <span> / </span>
-        <a href="https://twitter.com/NSivadass" target="_blank">
-          Say Hi on Twitter
-        </a>
-        <span> / </span>
-        <a href="https://sivadass.in" target="_blank">
-          Read My Blog
-        </a>
+            </p>
+            <p>
+                &copy; 2017 <strong>Veggy</strong> - Organic Green Store
       </p>
-      <p>
-        &copy; 2017 <strong>Veggy</strong> - Organic Green Store
-      </p>
-    </footer>
-  );
+        </footer>
+    );
 };
 
 export default Footer;
