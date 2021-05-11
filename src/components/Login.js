@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../scss/index.css'
 import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
