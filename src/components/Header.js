@@ -44,6 +44,10 @@ class Header extends Component {
   }
   handleClickOutside(event) {
     const cartNode = findDOMNode(this.refs.cartPreview);
+    if(!cartNode) {
+      return
+    }
+
     const buttonNode = findDOMNode(this.refs.cartButton);
     if (cartNode.classList.contains("active")) {
       if (!cartNode || !cartNode.contains(event.target)) {
@@ -75,6 +79,7 @@ class Header extends Component {
       clevertap.event.push("Charged", {
         "Items": this.props.cartItems 
       })
+      this.props.showToast(`CleverTap Charged Event Recorded!`)
       this.setState({showCart: false})
       this.props.removeAllProducts()
     }
