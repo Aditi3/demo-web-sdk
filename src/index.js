@@ -6,7 +6,7 @@ import Products from "./components/Products";
 import Footer from "./components/Footer";
 import QuickView from "./components/QuickView";
 import "./scss/style.scss";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 
 //CLEVERTAP INITIALIZATION
 import clevertap from 'clevertap-web-sdk';
@@ -18,6 +18,6 @@ clevertap.setLogLevel(3);
 
 
 
-ReactDOM.render(<BrowserRouter>
+ReactDOM.render(<HashRouter>
   <App />
-</BrowserRouter>, document.getElementById("root"));
+</HashRouter>, document.getElementById("root"));
