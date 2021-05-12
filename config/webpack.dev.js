@@ -1,10 +1,10 @@
 const path = require("path");
 const webpack = require("webpack");
-const merge = require("webpack-merge");
+const { merge } = require('webpack-merge')
 
 const webpackCommon = require("./webpack.common");
 
-module.exports = merge.smart(webpackCommon, {
+module.exports = merge(webpackCommon, {
   mode: "development",
   output: {
     publicPath: "/", // deploy on server with /app/ folder name

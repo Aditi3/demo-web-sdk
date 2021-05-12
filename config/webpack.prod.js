@@ -1,5 +1,5 @@
 const path = require("path");
-const merge = require("webpack-merge");
+const { merge } = require('webpack-merge')
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CleanWbepackPlugin = require("clean-webpack-plugin");
@@ -11,7 +11,7 @@ const cleanOptions = {
   root: path.resolve(__dirname, "../")
 };
 
-module.exports = merge.smart(webpackCommon, {
+module.exports = merge(webpackCommon, {
   output: {
     filename: "main.[chunkhash].js",
     path: path.resolve(__dirname, "../docs"),
