@@ -4,7 +4,7 @@
   "description": "Simple react shopping cart without using redux",
   "main": "main.js",
   "scripts": {
-    "start": "webpack serve --config config/webpack.dev.js",
+    "start": "webpack-dev-server --config=config/webpack.dev.js",
     "build": "NODE_ENV=production webpack --config=config/webpack.prod.js"
   },
   "keywords": [
@@ -23,7 +23,7 @@
     "react-custom-scrollbars": "^4.1.1",
     "react-dom": "^16.0.0",
     "react-router-dom": "^5.2.0",
-    "react-toastify": "^7.0.4",
+    "react-toastify": "4.1",
     "react-transition-group": "^1.1.2"
   },
   "devDependencies": {
@@ -47,9 +47,9 @@
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.7.3"
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
   }
 }

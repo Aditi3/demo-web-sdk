@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from './components/Home';
 import Login from "./components/Login";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
