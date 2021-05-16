@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+// @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 * {
   box-sizing: border-box;
@@ -25,7 +25,7 @@ body, html, .App, #root, .auth-wrapper {
   justify-content: center;
   flex-direction: column;
   text-align: left;
-  background: #1C8EF9 !important;
+  background: #d74942 !important;
   min-height: 100vh;
   font-weight: 400;
   font-family: 'Fira Sans', sans-serif;
@@ -42,7 +42,7 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .auth-wrapper .form-control:focus {
-  border-color: #167bff;
+  border-color: #d74942;
   box-shadow: none;
 }
 
@@ -59,6 +59,7 @@ body, html, .App, #root, .auth-wrapper {
 
 .btn-primary {
   margin-right: 20px;
+  background: #d74942 !important;
 }
 
 .custom-control-label {
@@ -75,5 +76,5 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .forgot-password a {
-  color: #167bff;
+  color: #d74942;
 }

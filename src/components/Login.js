@@ -7,7 +7,8 @@ class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: ""
+            email: "",
+            identity: ""
         }
     }
 
@@ -16,18 +17,18 @@ class Login extends Component {
 
         clevertap.profile.push({
             "Site": {
-                "Name": "Carl Johnson",                  
-                "Identity": 420,                    
-                "Email": this.state.email,           
-                "Phone": "+919999999999",             
-                "Gender": "M",                        
-                "DOB": new Date("1988-08-24"), 
+                "Name": "Carl Johnson",
+                "Identity": this.state.identity,
+                "Email": this.state.email,
+                "Phone": "+919999999999",
+                "Gender": "M",
+                "DOB": new Date("1988-08-24"),
                 "Photo": 'https://img1.svg.com/img/gallery/what-the-critics-are-saying-about-yakuza-like-a-dragon/intro-1602524858.jpg',    // URL to the Image
             }
         })
 
         this.props.showToast("CleverTap Profile Push Event Recorded!")
-        
+
         this.props.history.push({
             pathname: `/home`
         });
@@ -36,12 +37,12 @@ class Login extends Component {
     onUserLoginPressed = () => {
         clevertap.onUserLogin.push({
             "Site": {
-                "Name": "Niko Bellic",                  
-                "Identity": 420,                    
-                "Email": this.state.email,           
-                "Phone": "+919999999999",             
-                "Gender": "M",                        
-                "DOB": new Date("1988-08-24"), 
+                "Name": "Niko Bellic",
+                "Identity": this.state.identity,
+                "Email": this.state.email,
+                "Phone": "+919999999999",
+                "Gender": "M",
+                "DOB": new Date("1988-08-24"),
                 "Photo": 'https://img1.svg.com/img/gallery/what-the-critics-are-saying-about-yakuza-like-a-dragon/intro-1602524858.jpg',    // URL to the Image
             }
         })
@@ -53,7 +54,11 @@ class Login extends Component {
     }
 
     emailChanged = (event) => {
-        this.setState({email: event.target.value})
+        this.setState({ email: event.target.value })
+    }
+
+    identityChanged = (event) => {
+        this.setState({ identity: event.target.value })
     }
 
     render() {
@@ -65,12 +70,12 @@ class Login extends Component {
 
                         <div className="form-group">
                             <label>Email address</label>
-                            <input type="email" className="form-control" placeholder="Enter email" onChange={(event)=>this.emailChanged(event)}/>
+                            <input type="email" className="form-control" placeholder="Enter email" onChange={(event) => this.emailChanged(event)} />
                         </div>
 
                         <div className="form-group">
-                            <label>Password</label>
-                            <input type="password" className="form-control" placeholder="Enter password" />
+                            <label>Identity</label>
+                            <input className="form-control" placeholder="Enter identity" onChange={(event) => this.identityChanged(event)} />
                         </div>
 
                         {/* <div className="form-group">
