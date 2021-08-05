@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { withRouter } from 'react-router-dom';
-import logo from '../logo.png'
 
 class Login extends Component {
 
@@ -67,7 +66,7 @@ class Login extends Component {
             <div className="auth-wrapper">
                 <div className="auth-inner">
                     <div className="img-parent">
-                        <img src={logo} width="100px" height="100px" />
+                        <img src="logo.png" width="100px" height="100px" />
                     </div>
                     <form onSubmit={this.submitPressed}>
                         <h3>Sign In</h3>
