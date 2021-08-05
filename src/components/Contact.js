@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { withRouter } from 'react-router-dom';
+import logo from '../logo.png'
 
 class Contact extends Component {
 
@@ -38,6 +39,9 @@ class Contact extends Component {
         return (
             <div className="auth-wrapper">
                 <div className="auth-inner">
+                    <div className="img-parent">
+                        <img src={logo} width="100px" height="100px" />
+                    </div>
                     <form onSubmit={this.submitPressed}>
                         <h3>Contact us</h3>
 
@@ -50,7 +54,7 @@ class Contact extends Component {
                             <label>Mobile Number</label>
                             <input type="number" className="form-control" placeholder="Enter Mobile Number" onChange={(event) => this.mobileChanged(event)} />
                         </div>
-                        
+
                         <button onClick={this.onSubmitPressed} className="btn btn-primary btn-block">Submit</button>
                     </form>
                 </div></div>
