@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Login from "./components/Login";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Contact from './components/Contact';
 
 class App extends Component {
 
@@ -22,6 +23,9 @@ class App extends Component {
                         )} />
                         <Route exact path='/home' render={(props) => (
                             <Home {...props} showToast={this.showToast} />
+                        )} />
+                        <Route exact path='/contact' render={(props) => (
+                            <Contact {...props} showToast={this.showToast} />
                         )} />
                     </Switch>
                     <ToastContainer />
